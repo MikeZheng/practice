@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Header>
+    <KwsSoapHeader xmlns="http://www.shijinet.com.cn/kunlun/kws/1.1/">
+      <SessionId>string</SessionId>
+      <RetCode>string</RetCode>
+      <ErrReason>string</ErrReason>
+    </KwsSoapHeader>
+  </soap:Header>
+  <soap:Body>
+    <GetRateDetailDailyResponse xmlns="http://www.shijinet.com.cn/kunlun/kws/1.1/">
+      <GetRateDetailDailyResult>
+        <Default_Rate>string</Default_Rate>
+        <Rate>
+          <OGuaranteeRule>
+            <GuaranteeRule xsi:nil="true" />
+            <GuaranteeRule xsi:nil="true" />
+          </OGuaranteeRule>
+          <CateCode>string</CateCode>
+          <MinLos>int</MinLos>
+          <MaxLos>int</MaxLos>
+          <AdvBookin>int</AdvBookin>
+          <Des>string</Des>
+          <BasePrice>decimal</BasePrice>
+          <Packages>
+            <Package xsi:nil="true" />
+            <Package xsi:nil="true" />
+          </Packages>
+          <Market>
+            <mcode>string</mcode>
+          </Market>
+          <Source>
+            <mcode>string</mcode>
+          </Source>
+          <ShortInfo>string</ShortInfo>
+          <LongInfo>string</LongInfo>
+          <IsStandard>string</IsStandard>
+          <IsDiscount>string</IsDiscount>
+        </Rate>
+        <RoomRateDetails>
+          <RoomRateDetail>
+            <RoomTypeDetail xsi:nil="true" />
+            <RateDetailDailys xsi:nil="true" />
+          </RoomRateDetail>
+          <RoomRateDetail>
+            <RoomTypeDetail xsi:nil="true" />
+            <RateDetailDailys xsi:nil="true" />
+          </RoomRateDetail>
+        </RoomRateDetails>
+      </GetRateDetailDailyResult>
+    </GetRateDetailDailyResponse>
+  </soap:Body>
+</soap:Envelope>

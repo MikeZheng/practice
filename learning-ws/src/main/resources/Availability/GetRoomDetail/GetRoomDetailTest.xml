@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RoomTypeDetail xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.shijinet.com.cn/kunlun/kws/1.1/">
+  <name>三人房</name>
+  <Status>0</Status>
+  <Hotel>
+    <code>100001</code>
+    <name>王府井大饭店</name>
+  </Hotel>
+  <RoomType>
+    <code>TP</code>
+    <name>三人房</name>
+  </RoomType>
+  <Number>10</Number>
+  <Des />
+  <Address />
+  <Pic />
+  <Installations />
+  <Area>0</Area>
+</RoomTypeDetail>

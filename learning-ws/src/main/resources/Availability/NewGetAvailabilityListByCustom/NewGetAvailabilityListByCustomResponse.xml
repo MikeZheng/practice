@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Header>
+    <KwsSoapHeader xmlns="http://www.shijinet.com.cn/kunlun/kws/1.1/">
+      <SessionId>string</SessionId>
+      <RetCode>string</RetCode>
+      <ErrReason>string</ErrReason>
+    </KwsSoapHeader>
+  </soap:Header>
+  <soap:Body>
+    <NewGetAvailabilityListByCustomResponse xmlns="http://www.shijinet.com.cn/kunlun/kws/1.1/">
+      <NewGetAvailabilityListByCustomResult>
+        <Availability>
+          <HotelInfo>
+            <Map>string</Map>
+            <MinPrice>decimal</MinPrice>
+            <MaxPrice>decimal</MaxPrice>
+            <CommentResult>decimal</CommentResult>
+            <Udf_1>string</Udf_1>
+            <Udf_2>string</Udf_2>
+            <Udf_3>string</Udf_3>
+            <Udf_4>string</Udf_4>
+            <Udf_5>string</Udf_5>
+            <Code>string</Code>
+            <Name>string</Name>
+            <EngName>string</EngName>
+            <Stars>string</Stars>
+            <StarName>string</StarName>
+            <Address>string</Address>
+            <Country xsi:nil="true" />
+            <Province xsi:nil="true" />
+            <Phone>string</Phone>
+            <Fax>string</Fax>
+            <PostCode>string</PostCode>
+            <CityName>string</CityName>
+            <CityCode>string</CityCode>
+          </HotelInfo>
+          <RateInfos>
+            <RateInfo xsi:nil="true" />
+            <RateInfo xsi:nil="true" />
+          </RateInfos>
+        </Availability>
+        <Availability>
+          <HotelInfo>
+            <Map>string</Map>
+            <MinPrice>decimal</MinPrice>
+            <MaxPrice>decimal</MaxPrice>
+            <CommentResult>decimal</CommentResult>
+            <Udf_1>string</Udf_1>
+            <Udf_2>string</Udf_2>
+            <Udf_3>string</Udf_3>
+            <Udf_4>string</Udf_4>
+            <Udf_5>string</Udf_5>
+            <Code>string</Code>
+            <Name>string</Name>
+            <EngName>string</EngName>
+            <Stars>string</Stars>
+            <StarName>string</StarName>
+            <Address>string</Address>
+            <Country xsi:nil="true" />
+            <Province xsi:nil="true" />
+            <Phone>string</Phone>
+            <Fax>string</Fax>
+            <PostCode>string</PostCode>
+            <CityName>string</CityName>
+            <CityCode>string</CityCode>
+          </HotelInfo>
+          <RateInfos>
+            <RateInfo xsi:nil="true" />
+            <RateInfo xsi:nil="true" />
+          </RateInfos>
+        </Availability>
+      </NewGetAvailabilityListByCustomResult>
+    </NewGetAvailabilityListByCustomResponse>
+  </soap:Body>
+</soap:Envelope>

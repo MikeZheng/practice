@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Header>
+    <KwsSoapHeader xmlns="http://www.shijinet.com.cn/kunlun/kws/1.1/">
+      <SessionId>string</SessionId>
+      <RetCode>string</RetCode>
+      <ErrReason>string</ErrReason>
+    </KwsSoapHeader>
+  </soap:Header>
+  <soap:Body>
+    <GetRateDetailSummaryResponse xmlns="http://www.shijinet.com.cn/kunlun/kws/1.1/">
+      <GetRateDetailSummaryResult>
+        <id>int</id>
+        <Rate>
+          <OGuaranteeRule>
+            <GuaranteeRule xsi:nil="true" />
+            <GuaranteeRule xsi:nil="true" />
+          </OGuaranteeRule>
+          <CateCode>string</CateCode>
+          <MinLos>int</MinLos>
+          <MaxLos>int</MaxLos>
+          <AdvBookin>int</AdvBookin>
+          <Des>string</Des>
+          <BasePrice>decimal</BasePrice>
+          <Packages>
+            <Package xsi:nil="true" />
+            <Package xsi:nil="true" />
+          </Packages>
+          <Market>
+            <mcode>string</mcode>
+          </Market>
+          <Source>
+            <mcode>string</mcode>
+          </Source>
+          <ShortInfo>string</ShortInfo>
+          <LongInfo>string</LongInfo>
+          <IsStandard>string</IsStandard>
+          <IsDiscount>string</IsDiscount>
+        </Rate>
+        <RoomType>
+          <color>string</color>
+        </RoomType>
+        <Price>decimal</Price>
+        <FromDt>dateTime</FromDt>
+        <ToDt>dateTime</ToDt>
+        <RoomNumbers>string</RoomNumbers>
+        <Prs1>decimal</Prs1>
+        <Prs2>decimal</Prs2>
+        <Prs3>decimal</Prs3>
+        <Prs4>decimal</Prs4>
+        <Prs5>decimal</Prs5>
+        <Wprs1>decimal</Wprs1>
+        <Wprs2>decimal</Wprs2>
+        <Wprs3>decimal</Wprs3>
+        <Wprs4>decimal</Wprs4>
+        <Wprs5>decimal</Wprs5>
+        <ExtraBed>decimal</ExtraBed>
+        <WextraBed>decimal</WextraBed>
+        <Child>decimal</Child>
+        <Wchild>decimal</Wchild>
+        <Name>string</Name>
+        <Memo>string</Memo>
+        <Hotel>
+          <Eng_Name>string</Eng_Name>
+          <CityName>string</CityName>
+        </Hotel>
+        <WeekControl>string</WeekControl>
+        <SumPrice>int</SumPrice>
+      </GetRateDetailSummaryResult>
+    </GetRateDetailSummaryResponse>
+  </soap:Body>
+</soap:Envelope>

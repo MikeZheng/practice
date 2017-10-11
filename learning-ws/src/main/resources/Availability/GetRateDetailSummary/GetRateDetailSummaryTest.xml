@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RateDetailSummary xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.shijinet.com.cn/kunlun/kws/1.1/">
+  <id>50086</id>
+  <Rate>
+    <code>PRON</code>
+    <name />
+    <MinLos>1</MinLos>
+    <MaxLos>7</MaxLos>
+    <AdvBookin>0</AdvBookin>
+    <Des>春节价</Des>
+    <BasePrice>0</BasePrice>
+  </Rate>
+  <RoomType>
+    <code>TP</code>
+    <name>三人房</name>
+  </RoomType>
+  <Price>0.00</Price>
+  <FromDt>2008-07-03T00:00:00</FromDt>
+  <ToDt>2008-12-31T00:00:00</ToDt>
+  <RoomNumbers>0</RoomNumbers>
+  <Prs1>100.00</Prs1>
+  <Prs2>200.00</Prs2>
+  <Prs3>300.00</Prs3>
+  <Prs4>0.00</Prs4>
+  <Prs5>0.00</Prs5>
+  <Wprs1>0.00</Wprs1>
+  <Wprs2>0.00</Wprs2>
+  <Wprs3>0.00</Wprs3>
+  <Wprs4>0.00</Wprs4>
+  <Wprs5>0.00</Wprs5>
+  <ExtraBed>0.00</ExtraBed>
+  <WextraBed>0.00</WextraBed>
+  <Child>0.00</Child>
+  <Wchild>0.00</Wchild>
+  <Name />
+  <Memo />
+  <Hotel>
+    <code>100001</code>
+    <name>王府井大饭店</name>
+  </Hotel>
+  <WeekControl>7,1,2,3,4,5,6</WeekControl>
+  <SumPrice>0</SumPrice>
+</RateDetailSummary>

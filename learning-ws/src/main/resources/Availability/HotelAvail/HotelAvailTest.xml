@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfHotelInfoSummary xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.shijinet.com.cn/kunlun/kws/1.1/">
+  <HotelInfoSummary>
+    <Level>5</Level>
+    <MinPrice>0.00</MinPrice>
+    <MaxPrice>100.00</MaxPrice>
+    <CommentResult>4.500000</CommentResult>
+    <Code>100001</Code>
+    <Name>王府井大饭店</Name>
+    <EngName>wfj</EngName>
+    <Stars>0005</Stars>
+    <StarName>五星级</StarName>
+    <Address>北京市东城区王府井大街111号</Address>
+  </HotelInfoSummary>
+</ArrayOfHotelInfoSummary>

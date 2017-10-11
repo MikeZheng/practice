@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Header>
+    <KwsSoapHeader xmlns="http://www.shijinet.com.cn/kunlun/kws/1.1/">
+      <SessionId>fe376e81-5193-47d2-9683-855e410093ac</SessionId>
+      <RetCode>4001</RetCode>
+      <ErrReason/>
+    </KwsSoapHeader>
+  </soap:Header>
+  <soap:Body>
+    <GetRateSwitchResponse xmlns="http://www.shijinet.com.cn/kunlun/kws/1.1/">
+      <GetRateSwitchResult>
+        <HotelCode>string</HotelCode>
+        <ChannelCode>string</ChannelCode>
+        <RateCode>string</RateCode>
+        <DayStatus>string</DayStatus>
+        <Year>int</Year>
+      </GetRateSwitchResult>
+    </GetRateSwitchResponse>
+  </soap:Body>
+</soap:Envelope>

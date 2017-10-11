@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Header>
+    <KwsSoapHeader xmlns="http://www.shijinet.com.cn/kunlun/kws/1.1/">
+      <SessionId>string</SessionId>
+      <RetCode>string</RetCode>
+      <ErrReason>string</ErrReason>
+    </KwsSoapHeader>
+  </soap:Header>
+  <soap:Body>
+    <GetDailyInventoryResponse xmlns="http://www.shijinet.com.cn/kunlun/kws/1.1/">
+      <GetDailyInventoryResult>
+        <HotelCode>string</HotelCode>
+        <DailyInventories>
+          <DailyInventory>
+            <Datum>dateTime</Datum>
+            <HouseOverBook>int</HouseOverBook>
+            <RoomTypeInventories xsi:nil="true" />
+          </DailyInventory>
+          <DailyInventory>
+            <Datum>dateTime</Datum>
+            <HouseOverBook>int</HouseOverBook>
+            <RoomTypeInventories xsi:nil="true" />
+          </DailyInventory>
+        </DailyInventories>
+      </GetDailyInventoryResult>
+    </GetDailyInventoryResponse>
+  </soap:Body>
+</soap:Envelope>

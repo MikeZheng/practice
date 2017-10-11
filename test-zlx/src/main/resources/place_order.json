@@ -1,0 +1,13 @@
+{
+  "refOrderNo": "ref002",
+  "chanelCode ": "E02256",
+  "goodsDatas": [
+    {
+      "certificateNum": "350301195802184936",
+      "tripDate": "2017-08-25",
+      "salePrice": 100,
+      "quantity": 1,
+      "goodsNo": "T000004347"
+    }
+  ]
+}

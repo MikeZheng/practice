@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Header>
+    <KwsSoapHeader xmlns="http://www.shijinet.com.cn/kunlun/kws/1.1/">
+      <SessionId>string</SessionId>
+      <RetCode>string</RetCode>
+      <ErrReason>string</ErrReason>
+    </KwsSoapHeader>
+  </soap:Header>
+  <soap:Body>
+    <HotelAvail xmlns="http://www.shijinet.com.cn/kunlun/kws/1.1/">
+      <min_price>int</min_price>
+      <max_price>int</max_price>
+      <arrival>dateTime</arrival>
+      <departure>dateTime</departure>
+      <extra_bed>int</extra_bed>
+      <adults>int</adults>
+      <room_num>int</room_num>
+      <guesttype_code>string</guesttype_code>
+      <cust_account>string</cust_account>
+      <card_no>string</card_no>
+      <children>int</children>
+      <channel>string</channel>
+      <groupCode>string</groupCode>
+      <countryCode>string</countryCode>
+      <cityCode>string</cityCode>
+      <tag>string</tag>
+      <hotelName>string</hotelName>
+      <starCode>string</starCode>
+    </HotelAvail>
+  </soap:Body>
+</soap:Envelope>

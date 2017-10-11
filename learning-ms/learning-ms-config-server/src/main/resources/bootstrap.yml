@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: config-server
+  profiles:
+    active: default
+  cloud:
+    config:
+      server:
+        git:
+#         uri: https://github.com/spring-cloud-samples/config-repo
+          uri: https://github.com/mumubin/MMBConfigData
+          searchPaths: data
+          basedir: target/config
+#        native:
+#          searchLocations:
+server:
+  port: 8001
+
+

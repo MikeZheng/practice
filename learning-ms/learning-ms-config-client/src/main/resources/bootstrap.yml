@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      uri: http://localhost:8001
+      searchPaths: data
+
+server:
+  port: 8002
