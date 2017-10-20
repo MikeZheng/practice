@@ -21,4 +21,33 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-*/.idea/*
+.idea/
+learning-etcd/learning-etcd.iml
+learning-etcd/target/
+learning-ms/learning-ms-config-client/learning-ms-config-client.iml
+learning-ms/learning-ms-config-client/target/
+learning-ms/learning-ms-config-server/learning-ms-config-server.iml
+learning-ms/learning-ms-config-server/target/
+learning-ms/learning-ms-consume/learning-ms-consume.iml
+learning-ms/learning-ms-consume/src/test/
+learning-ms/learning-ms-consume/target/
+learning-ms/learning-ms-server/learning-ms-server.iml
+learning-ms/learning-ms-server/src/test/
+learning-ms/learning-ms-server/target/
+learning-ms/learning-ms-service/learning-ms-service.iml
+learning-ms/learning-ms-service/src/test/
+learning-ms/learning-ms-service/target/
+learning-ms/learning-ms.iml
+learning-ms/src/main/java/
+learning-ms/src/main/resources/
+learning-ms/src/test/
+learning-quartz/learning-quartz.iml
+learning-quartz/target/
+learning-spring/learning-spring.iml
+learning-spring/target/
+learning-ws/learning-ws.iml
+learning-xml/learning-xml.iml
+lib/
+src/main/resources/
+test-zlx/target/
+test-zlx/test-zlx.iml
