@@ -9,8 +9,11 @@ import org.boon.etcd.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
-public class EtcdPropertyDao extends EtcdBaseDao implements IPropertyDao {
+/**
+ * Hello world!
+ * @author ZZF
+ */
+public class EtcdPropertyDao extends EtcdBaseDao   {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(EtcdPropertyDao.class);
 
@@ -29,8 +32,7 @@ public class EtcdPropertyDao extends EtcdBaseDao implements IPropertyDao {
 		return suc;
 	}
 
-
-	public boolean updateProperty(String nodeName, String value, String comment) {
+    public boolean updateProperty(String nodeName, String value, String comment) {
 		LOGGER.debug("Update property: [{}] = [{}]", nodeName, value);
 		boolean suc = false;
         JSONObject json = new JSONObject();
@@ -45,8 +47,7 @@ public class EtcdPropertyDao extends EtcdBaseDao implements IPropertyDao {
 		return suc;
 	}
 
-
-	public void deleteProperty(String nodeName) {
+    public void deleteProperty(String nodeName) {
 		LOGGER.debug("Delete property: [{}]", nodeName);
 		try {
 			getClient().delete(nodeName.substring(1));
@@ -55,7 +56,7 @@ public class EtcdPropertyDao extends EtcdBaseDao implements IPropertyDao {
 		}
 	}
 
-	public void deleteGorup(String nodeName) {
+    public void deleteGorup(String nodeName) {
 		LOGGER.debug("deleteGorup property: [{}]", nodeName);
 		try {
 
@@ -78,7 +79,7 @@ public class EtcdPropertyDao extends EtcdBaseDao implements IPropertyDao {
 	}
 
 
-	public boolean createGroup(String nodeName) {
+    public boolean createGroup(String nodeName) {
 		LOGGER.debug("Create createGroup : [{}] ", nodeName);
 		boolean suc = false;
 		try {

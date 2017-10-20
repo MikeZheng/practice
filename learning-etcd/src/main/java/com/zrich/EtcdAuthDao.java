@@ -17,11 +17,10 @@ import com.google.common.base.Throwables;
  * <p>Company:Mopon</p>
  * <p>Copyright:Copyright(c)2013</p>
  */
-public class EtcdAuthDao extends EtcdBaseDao implements IAuthDao {
+public class EtcdAuthDao extends EtcdBaseDao {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(EtcdAuthDao.class);
 
-	@Override
 	public boolean checkAuth(String nodeName, String password) {
 		LOGGER.debug("Check checkAuth: [{}]", nodeName);
 		boolean isPass = false;
@@ -42,7 +41,6 @@ public class EtcdAuthDao extends EtcdBaseDao implements IAuthDao {
 		return isPass;
 	}
 
-	@Override
 	public boolean auth(String nodeName, String password) {
 		LOGGER.debug("Check auth: [{}]", nodeName);
 		boolean isPass = false;
@@ -61,7 +59,6 @@ public class EtcdAuthDao extends EtcdBaseDao implements IAuthDao {
 		return isPass;
 	}
 
-	@Override
 	public boolean checkNodeName(String nodeName) {
 		LOGGER.debug("Check checkNodeName: [{}]", nodeName);
 		boolean isPass = true;
