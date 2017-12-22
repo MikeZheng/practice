@@ -21,6 +21,15 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
+.git/
+**/target/
+
+# Eclipse
+.settings/
+*.classpath
+.project
+
+# Idea Intellij
 .idea/
 learning-etcd/learning-etcd.iml
 learning-etcd/target/
@@ -51,3 +60,4 @@ lib/
 src/main/resources/
 test-zlx/target/
 test-zlx/test-zlx.iml
+/.gitignore
