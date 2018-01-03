@@ -20,6 +20,7 @@
 		<module>learning-ws</module>
 		<module>learning-ms</module>
 		<module>learning-etcd</module>
+        <module>learning-validator</module>
 	</modules>
 
 	<dependencyManagement>
@@ -28,8 +29,8 @@
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
 				<version>4.12</version>
-				<scope>test</scope>
-			</dependency>
+
+            </dependency>
 			  <dependency>
 			    <groupId>org.apache.logging.log4j</groupId>
 			    <artifactId>log4j-core</artifactId>
