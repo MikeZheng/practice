@@ -60,4 +60,5 @@ lib/
 src/main/resources/
 test-zlx/target/
 test-zlx/test-zlx.iml
-/.gitignore
+.gitignore
+/bin/
