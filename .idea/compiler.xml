@@ -7,31 +7,32 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="learning-etcd" />
+        <module name="learning-fileserver" />
         <module name="learning-ms-config-client" />
         <module name="learning-ms-config-server" />
         <module name="learning-ms-consume" />
         <module name="learning-ms-server" />
         <module name="learning-ms-service" />
-        <module name="learning-validator" />
+        <module name="learning-mybatis" />
         <module name="learning-ws" />
         <module name="learning-xml" />
         <module name="test-zlx" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="learning" target="1.8" />
       <module name="learning-etcd" target="1.8" />
+      <module name="learning-fileserver" target="1.8" />
       <module name="learning-ms" target="1.8" />
       <module name="learning-ms-config-client" target="1.8" />
       <module name="learning-ms-config-server" target="1.8" />
       <module name="learning-ms-consume" target="1.8" />
       <module name="learning-ms-server" target="1.8" />
       <module name="learning-ms-service" target="1.8" />
+      <module name="learning-mybatis" target="1.8" />
       <module name="learning-quartz" target="1.8" />
-      <module name="learning-spring" target="1.5" />
-      <module name="learning-validator" target="1.8" />
       <module name="learning-ws" target="1.8" />
       <module name="learning-xml" target="1.8" />
-      <module name="practice" target="1.8" />
       <module name="test-zlx" target="1.8" />
     </bytecodeTargetLevel>
   </component>
