@@ -31,6 +31,7 @@ hs_err_pid*
 
 # Idea Intellij
 .idea/
+*.iml
 
 
 learning-etcd/learning-etcd.iml
