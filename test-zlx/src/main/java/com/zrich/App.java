@@ -1,57 +1,71 @@
 package com.zrich;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.IOException;
-import java.util.Date;
-import java.util.Scanner;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.UUID;
 
 /**
  * Hello world!
  */
 public class App {
-    public static void main(String[] args) throws IOException {
-        System.out.println("Hello World!");
-        final String channelCode = "E02256";
-        final String key = "YF306CDV";
-        final String thriftIP = "localhost";
-        final int port = 8099;
+  public static void main(String[] args) throws IOException {
 
-        final PlaceTeamOrderHandler placeTeamOrderHandler = new PlaceTeamOrderHandler();
-        final OrderPayNotifyHandler orderPayNotifyHandler = new OrderPayNotifyHandler();
-        final PlaceOrderHandler placeOrderHandler = new PlaceOrderHandler();
+    /*String path = "mybatis-config.xml";
+    SqlSessionFactory factory =
+        new SqlSessionFactoryBuilder().build(Resources.getResourceAsReader(path));
 
-        System.out.println("Batch place order start at " + new Date());
-
-
-
-         boolean stop = false;
-
-//        while (!stop) {
-            /*String orderNo = placeOrderHandler.execute(channelCode, key, thriftIP, port);
-            if (orderNo != null && orderNo.trim().length() > 0) {
-                orderPayNotifyHandler.execute(channelCode, key, thriftIP, port, orderNo);
-            }*/
-//        }
+    try (SqlSession session = factory.openSession()) {
+      UserMapper userMapper = session.getMapper(UserMapper.class);
+      // User user = new User();
+      // user.setId(3);
+      // user.setName("David");
+      // user.setAddress("广东省深圳市");
+      // user.setEmail("123@123.com");
+      // user.setGender("M");
+      // userMapper.insert(user);
+      UserExample example = new UserExample();
+      System.out.println(userMapper.countByExample(example));
+      session.commit();*/
+    System.out.println(UUID.randomUUID().toString().replace("-", ""));
 
 
+    /*
+     * Connection connection=null; try { Class.forName("org.postgresql.Driver"); connection =
+     * DriverManager.getConnection("jdbc:postgresql://localhost:5432/test"); } catch (Exception e) {
+     * e.printStackTrace(); }
+     */
 
+    Logger logger = LogManager.getLogger("mylog");
+    logger.debug("debug");
+    logger.error("error");
+    logger.info("info");
+    logger.trace("trace");
+    logger.warn("warn");
+    logger.fatal("fatal");
 
-        ExecutorService executor = Executors.newFixedThreadPool(1);
-        for (int i = 1; i < 50; i++) {
-            executor.submit(new Runnable() {
-                public void run() {
-                    String orderNo = placeTeamOrderHandler.execute(channelCode, key, thriftIP, port);
-                    if (orderNo != null && orderNo.trim().length() > 0) {
-                        orderPayNotifyHandler.execute(channelCode, key, thriftIP, port, orderNo);
-                    }
-                }
-            });
-        }
-        executor.shutdown();
-        while (!executor.isTerminated()) {
-
-        }
-        System.out.println("Batch place order end at " + new Date());
+    /*for (int i = 0; i < 50000; i++) {
+      logger.trace("trace level");
+      logger.debug("debug level");
+      logger.info("info level");
+      logger.warn("warn level");
+      logger.error("error level");
+      logger.fatal("fatal level");
     }
+    try {
+      Thread.sleep(1000 * 61);
+    } catch (InterruptedException e) {
+    }
+    logger.trace("trace level");
+    logger.debug("debug level");
+    logger.info("info level");
+    logger.warn("warn level");
+    logger.error("error level");
+    logger.fatal("fatal level");*/
+
+  }
+
+
+
 }
