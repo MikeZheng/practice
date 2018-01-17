@@ -25,6 +25,10 @@
 		</environment>
 	</environments>
 	<mappers>
-		<mapper resource="com/zrich/mapper/UserMapper.xml" />
+		<mapper resource="com/zrich/mapper/DmAttrDomainMapper.xml"/>
+		<mapper resource="com/zrich/mapper/DmDeviceAttrMapper.xml" />
+		<mapper resource="com/zrich/mapper/DmDeviceAttrMappingMapper.xml" />
+		<mapper resource="com/zrich/mapper/DmDeviceCategoryMapper.xml" />
+		<mapper resource="com/zrich/mapper/DmProviderMapper.xml" />
 	</mappers>
 </configuration>

@@ -23,7 +23,9 @@
         <module>learning-mybatis</module>
         <module>learning-fileserver</module>
         <module>learning-validator</module>
-	</modules>
+        <module>testframework</module>
+        <module>learning-redis</module>
+    </modules>
 
     <dependencyManagement>
         <dependencies>

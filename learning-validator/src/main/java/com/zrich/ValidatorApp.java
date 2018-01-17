@@ -8,17 +8,17 @@ import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 
-public class App {
+public class ValidatorApp {
 
     public static void main(String[] args) {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
 
         validate1(validator);
-        validate2(validator);
-        validateByGroup(validator);
-        validateProperty(validator);
-        validateValue(validator);
+//        validate2(validator);
+//        validateByGroup(validator);
+//        validateProperty(validator);
+//        validateValue(validator);
 
 
     }
