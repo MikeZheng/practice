@@ -1,12 +1,41 @@
 package com.zrich;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-
+import java.lang.reflect.Field;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import com.base.BaseCourtCommon;
+import com.base.BaseCourtConditionDto;
+import com.base.BaseCourtDto;
+import com.base.BaseHouseCommon;
+import com.base.BaseHouseConditionDto;
+import com.base.BaseHouseDto;
+import com.base.BaseHouseUserRelDto;
+import com.base.BaseOrgCommon;
+import com.base.BaseOrgConditionDto;
+import com.base.BaseOrgDto;
+import com.base.BaseOrgTreeDto;
+import com.base.BaseUserCommon;
+import com.base.BaseUserConditionDto;
+import com.base.BaseUserDto;
+import com.base.DictCodeDto;
+import com.base.DictCodeTypeDto;
+import com.device.DeviceAttributeConditionDto;
+import com.device.DeviceAttributeDomainDto;
+import com.device.DeviceAttributeMappingBatchDto;
+import com.device.DeviceAttributeMappingDto;
+import com.device.DeviceCategoryConditionDto;
+import com.device.DeviceCategoryFullDto;
+import com.device.DeviceCategorySimpleDto;
+import com.device.DistributionRequestDto;
+import com.device.DistributionResponseDto;
+import com.device.ProviderConditionDto;
+import com.device.ProviderDto;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 /**
  * Hello world!
@@ -15,10 +44,90 @@ import java.util.List;
 public class ClassStructureAnalyzer
 {
     public static void main( String[] args ) throws JsonProcessingException {
-        describeDeviceCategory();
-        describeDeviceAttribute();
-        describeDmProvider();
+//        describeDeviceCategory();
+//        describeDeviceAttribute();
+//        describeDmProvider();
+//        printBase();
+        printDevice();
 
+    }
+
+    private static void printBase() {
+        printSetMethod(BaseCourtCommon.class);
+        printSetMethod(BaseCourtConditionDto.class);
+        printSetMethod(BaseCourtDto.class);
+        printSetMethod(BaseHouseCommon.class);
+        printSetMethod(BaseHouseConditionDto.class);
+        printSetMethod(BaseHouseDto.class);
+        printSetMethod(BaseHouseUserRelDto.class);
+        printSetMethod(BaseOrgCommon.class);
+        printSetMethod(BaseOrgConditionDto.class);
+        printSetMethod(BaseOrgDto.class);
+        printSetMethod(BaseOrgTreeDto.class);
+        printSetMethod(BaseUserCommon.class);
+        printSetMethod(BaseUserConditionDto.class);
+        printSetMethod(BaseUserDto.class);
+        printSetMethod(DictCodeDto.class);
+        printSetMethod(DictCodeTypeDto.class);
+    }
+
+    private static void printDevice() {
+        printSetMethod(DeviceAttributeConditionDto.class);
+        printSetMethod(DeviceAttributeDomainDto.class);
+        printSetMethod(DeviceAttributeDto.class);
+        printSetMethod(DeviceAttributeMappingBatchDto.class);
+        printSetMethod(DeviceAttributeMappingDto.class);
+        printSetMethod(DeviceCategoryConditionDto.class);
+        printSetMethod(com.device.DeviceCategoryDto.class);
+        printSetMethod(DeviceCategoryFullDto.class);
+        printSetMethod(DeviceCategorySimpleDto.class);
+        printSetMethod(DistributionRequestDto.class);
+        printSetMethod(DistributionResponseDto.class);
+        printSetMethod(ProviderConditionDto.class);
+        printSetMethod(ProviderDto.class);
+    }
+
+    public static void printSetMethod(Class clazz) {
+        StringBuilder builder = new StringBuilder();
+        String className = clazz.getSimpleName();
+        String variableName = className.substring(0, 1).toLowerCase()+className.substring(1);
+        String blank = " ";
+        builder.append("@Test").append("\r\n");
+        builder.append("public void test").append(className).append("(){").append("\r\n");
+        builder.append(className).append(blank).append(variableName)
+                .append("=").append("new ").append(className).append("();").append("\r\n");
+        Field[] fields = clazz.getDeclaredFields();
+        for (int i = 0; i < fields.length; i++) {
+            Field field = fields[i];
+            if (field.getName().contains("serialVersionUID")) {
+                continue;
+            }
+            builder.append(variableName).append(".");
+            builder.append("set").append(field.getName().substring(0,1).toUpperCase())
+                    .append(field.getName().substring(1))
+            .append("(");
+             if (field.getType().isAssignableFrom(Short.class)){
+                builder.append("(short)1");
+            } else if (field.getType().isAssignableFrom(Integer.class)){
+                 builder.append("2");
+             } else if (field.getType().isAssignableFrom(Date.class)) {
+                 builder.append("new Date()");
+             } else if (field.getType().isAssignableFrom(BigDecimal.class)) {
+                builder.append("new BigDecimal(\"1\")");
+
+            } else {
+                 builder.append("\"").append(field.getName()).append("\"");
+             }
+            builder.append(");").append("\r\n");
+             builder.append("logger.info(");
+            builder.append(variableName).append(".");
+            builder.append("get").append(field.getName().substring(0, 1).toUpperCase()).append(field.getName().substring(1)).append("().toString());").append("\r\n");
+        }
+        builder.append("logger.info(").append(variableName).append(".toString());").append("\r\n");
+        builder.append("logger.info(String.valueOf(").append(variableName).append(".hashCode()));").append("\r\n");
+        builder.append("logger.info(String.valueOf(").append(variableName).append(".equals(new Object())));").append("\r\n");
+        builder.append("}");
+        System.out.println(builder.toString());
     }
 
     private static void describeDmProvider() throws JsonProcessingException {
