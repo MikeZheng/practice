@@ -1,30 +1,134 @@
 package com.zrich;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.io.UnsupportedEncodingException;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
+import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
+import redis.clients.jedis.HostAndPort;
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisCluster;
+import redis.clients.jedis.JedisPool;
+
+/**
+ * Hello world!
+ */
 public class RedisTest {
 
-    public static void main(String[] args) {
-        byte[] bytes  = {84, -19, 0, 5, 116, 1, 1, 101, 103, 115, 99, 95, 115, 99, 112, 95, 107, 101, 121, 95, 115, 115, 111, 95, 117, 115, 101, 114, 95, 101, 121, 74, 104, 98, 71, 99, 105, 79, 105, 74, 83, 85, 122, 85, 120, 77, 105, 74, 57, 46, 101, 121, 74, 122, 100, 87, 73, 105, 79, 105, 74, 48, 90, 88, 78, 48, 73, 105, 119, 105, 90, 88, 104, 119, 73, 106, 111, 120, 78, 84, 69, 50, 77, 84, 89, 121, 77, 106, 99, 53, 102, 81, 46, 73, 69, 52, 55, 79, 95, 111, 90, 53, 72, 113, 68, 120, 82, 84, 113, 68, 71, 81, 70, 83, 107, 105, 81, 120, 106, 111, 117, 113, 106, 95, 45, 121, 86, 88, 104, 68, 73, 54, 65, 115, 110, 122, 56, 120, 85, 73, 99, 84, 111, 97, 119, 122, 95, 81, 81, 48, 77, 77, 73, 68, 117, 80, 54, 121, 89, 90, 49, 88, 52, 56, 121, 109, 102, 97, 54, 97, 56, 104, 111, 70, 77, 77, 75, 122, 71, 95, 56, 108, 119, 79, 83, 120, 97, 67, 82, 103, 83, 83, 110, 102, 84, 56, 88, 76, 56, 69, 116, 111, 120, 89, 104, 119, 115, 87, 113, 115, 88, 99, 98, 87, 121, 95, 75, 118, 86, 112, 80, 121, 48, 85, 89, 90, 81, 75, 101, 111, 53, 87, 57, 55, 80, 49, 108, 109, 122, 78, 102, 67, 110, 111, 70, 68, 68, 72, 108, 73, 121, 68, 83, 120, 122, 74, 75, 119, 102, 120, 97, 65, 108, 85};
+  static JedisCluster jedisCluster;
+  static JdkSerializationRedisSerializer serializer = new JdkSerializationRedisSerializer();
 
-        System.out.println(new String(bytes));
+  public static final String HOST = "192.168.0.170";
 
-        String key = "egsc_scp_key_sso_user_eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiJ0ZXN0IiwiZXhwIjoxNTE2MTYyMjc5fQ.IE47O_oZ5HqDxRTqDGQFSkiQxjouqj_-yVXhDI6Asnz8xUIcToawz_QQ0MMIDuP6yYZ1X48ymfa6a8hoFMMKzG_8lwOSxaCRgSSnfT8XL8EtoxYhwsWqsXcbWy_KvVpPy0UYZQKeo5W97P1lmzNfCnoFDDHlIyDSxzJKwfxaAlU";
-        byte[] keyBytes = {101, 103, 115, 99, 95, 115, 99, 112, 95, 107, 101, 121, 95, 115, 115, 111, 95, 117, 115, 101, 114, 95, 101, 121, 74, 104, 98, 71, 99, 105, 79, 105, 74, 83, 85, 122, 85, 120, 77, 105, 74, 57, 46, 101, 121, 74, 122, 100, 87, 73, 105, 79, 105, 74, 48, 90, 88, 78, 48, 73, 105, 119, 105, 90, 88, 104, 119, 73, 106, 111, 120, 78, 84, 69, 50, 77, 84, 89, 121, 77, 106, 99, 53, 102, 81, 46, 73, 69, 52, 55, 79, 95, 111, 90, 53, 72, 113, 68, 120, 82, 84, 113, 68, 71, 81, 70, 83, 107, 105, 81, 120, 106, 111, 117, 113, 106, 95, 45, 121, 86, 88, 104, 68, 73, 54, 65, 115, 110, 122, 56, 120, 85, 73, 99, 84, 111, 97, 119, 122, 95, 81, 81, 48, 77, 77, 73, 68, 117, 80, 54, 121, 89, 90, 49, 88, 52, 56, 121, 109, 102, 97, 54, 97, 56, 104, 111, 70, 77, 77, 75, 122, 71, 95, 56, 108, 119, 79, 83, 120, 97, 67, 82, 103, 83, 83, 110, 102, 84, 56, 88, 76, 56, 69, 116, 111, 120, 89, 104, 119, 115, 87, 113, 115, 88, 99, 98, 87, 121, 95, 75, 118, 86, 112, 80, 121, 48, 85, 89, 90, 81, 75, 101, 111, 53, 87, 57, 55, 80, 49, 108, 109, 122, 78, 102, 67, 110, 111, 70, 68, 68, 72, 108, 73, 121, 68, 83, 120, 122, 74, 75, 119, 102, 120, 97, 65, 108, 85};
-        System.out.println(Arrays.toString(key.getBytes()));
+  static {
+    HostAndPort hostAndPort = new HostAndPort(HOST, 7000);
+    HostAndPort hostAndPort1 = new HostAndPort(HOST, 7001);
+    HostAndPort hostAndPort2 = new HostAndPort(HOST, 7002);
+    HostAndPort hostAndPort3 = new HostAndPort(HOST, 7003);
+    HostAndPort hostAndPort4 = new HostAndPort(HOST, 7004);
+    HostAndPort hostAndPort5 = new HostAndPort(HOST, 7005);
+    Set<HostAndPort> hostAndPorts = new HashSet<>(6);
+    hostAndPorts.add(hostAndPort);
+    hostAndPorts.add(hostAndPort1);
+    hostAndPorts.add(hostAndPort2);
+    hostAndPorts.add(hostAndPort3);
+    hostAndPorts.add(hostAndPort4);
+    hostAndPorts.add(hostAndPort5);
 
-        System.out.println(bytes.length);
-        for (int i = 0; i < bytes.length; i++) {
-            System.out.printf("%4d, ", bytes[bytes.length-i-1]);
-        }
+    jedisCluster = new JedisCluster(hostAndPorts);
+  }
 
-        System.out.println();
+  public static void main(String[] args) throws UnsupportedEncodingException {
+    String token = "eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiIxMzY0NDA4ODQ4MCIsImV4cCI6MTUxNzYyODkzMH0.derUs5FdwlF8qfuQlwS_hMdJAKdmVdUr7StMXXBaa7dLSkyRCgJ-NUCzbAQMCBR2V8Cyoi4mHns1CmijlcakIuJsOXoOuahbX8rQ2kmGiSRhohPSxOsUHSjktaVB2nsOFcQ850jFe3wBKIy3y6L51SB3NjuAq1SunmICwYMPhug";
 
-        for (int i = 0; i < keyBytes.length; i++) {
-            System.out.printf("%4d, ", keyBytes[keyBytes.length-i-1]);
-        }
+    String realKey = "egsc_scp_key_sso_user_" + token;
+    byte[] key = serializer.serialize(realKey);
+    Object object = jedisCluster.get(key);
+
+    long time = jedisCluster.ttl(key);
+
+    System.out.println("realKey has " + time);
+    byte[] bytes = (byte[]) object;
+    Object object1 = serializer.deserialize(bytes);
+    System.out.println("realKey value is " + object1);
+
+    String yyPhone = "15502646838";
+
+    String verifyCodeKey = getLoginVerifyCodeCountKey(yyPhone);
+//        get(verifyCodeKey);
+    expire(verifyCodeKey);
+
+    get("AUTH:sso_user_eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiIxMzgxMDMwOTk4NCIsImV4cCI6MTUyMDkxMzQxN30.qLnZuPVTEYlK9nfVK-p9Wxrl3vculqvevMQztcE6zQkylTXeJ-jN_RJwOPyMm-SuHYhVv4lBtWoe9jnlsyFTt3UoncoiksAHvrj0Ps6LNvWIHloT2hz3XUqrPS3IOgEI-rQ9eJYUgSKVlcDyHattRji8gtpWDszfKsDXA02Nhfs");
+//        delete("*15502646838*");
+//        System.out.println(delete);
+//        delete(returnKey);
+
+  }
+
+  private static void delete(Set<String> key) throws UnsupportedEncodingException {
+    for (String s : key) {
+      jedisCluster.del(s);
+      jedisCluster.del(s.getBytes("UTF-8"));
     }
+  }
 
+
+  private static String getLoginVerifyCodeCountKey(String phone) {
+    return "OMA:LOGIN.VERIFYCODE.COUNT." + phone;
+  }
+
+  private static void expire(String key) {
+    jedisCluster.expire(key, 1);
+  }
+
+  private static byte[] serializeKey(String realKey) {
+    JdkSerializationRedisSerializer serializer = new JdkSerializationRedisSerializer();
+    return serializer.serialize(realKey);
+  }
+
+  private static Object deserializeKey(byte[] serializedKey) {
+    JdkSerializationRedisSerializer serializer = new JdkSerializationRedisSerializer();
+    return serializer.deserialize(serializedKey);
+  }
+
+  private static void get(String key) {
+    Map<String, JedisPool> clusterNodes = jedisCluster.getClusterNodes();
+    for (String k : clusterNodes.keySet()) {
+      System.out.println("Getting value from: " + k);
+      JedisPool jp = clusterNodes.get(k);
+      try (Jedis connection = jp.getResource()) {
+        String value = connection.get(key);
+        System.out.println(value);
+      } catch (Exception e) {
+        System.out.println("Getting value error: " + e);
+      } finally {
+        System.out.println("Connection closed.");
+      }
+    }
+  }
+
+
+  private static void delete(String pattern) {
+    Map<String, JedisPool> clusterNodes = jedisCluster.getClusterNodes();
+    for (String k : clusterNodes.keySet()) {
+      System.out.println("Getting delete from: " + k);
+      JedisPool jp = clusterNodes.get(k);
+      try (Jedis connection = jp.getResource()) {
+        Set<String> keySet = connection.keys(pattern);
+        System.out.println(keySet);
+        for (String s : keySet) {
+          jedisCluster.del(s);
+        }
+      } catch (Exception e) {
+        System.out.println("Getting delete error: " + e);
+      } finally {
+        System.out.println("Connection closed.");
+      }
+    }
+  }
+
+  interface Callable {
+    Object run(Jedis jedis);
+  }
 }
