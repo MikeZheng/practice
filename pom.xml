@@ -25,10 +25,18 @@
         <module>learning-validator</module>
         <module>testframework</module>
         <module>learning-redis</module>
+        <module>learning-jackson</module>
+        <module>learning-jgrapht</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-compress</artifactId>
+                <version>1.16.1</version>
+            </dependency>
+
             <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
             <dependency>
                 <groupId>org.mybatis</groupId>

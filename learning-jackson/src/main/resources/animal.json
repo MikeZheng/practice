@@ -1,0 +1,14 @@
+[
+  {
+    "name":"Lily","type":"one","class":"cat","size":"BIG"
+  },
+  {
+    "name":"Jackson","color":"yellow","class":"dog","size":"LITTLE"
+  },
+  {
+    "name":"Tom","type":"one","class":"cat","size":"MIDDLE"
+  },
+  {
+    "name":"Jessi","color":"yellow","class":"dog","size":"BIG"
+  }
+]
